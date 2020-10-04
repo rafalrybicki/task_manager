@@ -1,6 +1,7 @@
 <template>
-   <div class="h100 w100">
-      this is AppBar
+   <div class="h100 w100 flex">
+      <slot />
+      this is button
    </div>
 </template>
 
@@ -18,5 +19,6 @@ export default {
       position: fixed;
       top: 0;
       left: 0;
+      padding-left: 16.5px;
    }
 </style>

@@ -1,6 +1,8 @@
 <template>
 	<div id="app" class="app flex">
-		<AppBar />
+		<AppBar>
+			<IconButton iconName="bars" />
+		</AppBar>
 		<Menu />
 		<main class="h100 w100">
          <router-view></router-view>
@@ -11,12 +13,14 @@
 <script>
 import AppBar from './components/AppBar.vue'
 import Menu from './components/Menu.vue'
+import IconButton from './components/IconButton.vue'
 
 export default {
 	name: 'App',
 	components: {
 		AppBar,
-		Menu
+		Menu,
+		IconButton
 	}
 }
 </script>
