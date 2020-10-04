@@ -1,13 +1,18 @@
 <template>
    <nav class="h100">
       <ul>
-         
+         <MenuItem v-for="item in items" :itemData="item" :key="item.to" />
       </ul>
    </nav>
 </template>
 
 <script>
+import MenuItem from './MenuItem';
+
 export default {
+   components: {
+      MenuItem
+   },
    data() {
       return {
          items: [
@@ -25,6 +30,6 @@ export default {
    nav {
       background-color: #FAFAFA;
       width: 260px;
-      padding: 12px;
+      padding: 0 12px 12px;
    }
 </style>
