@@ -2,6 +2,7 @@
    padding: 0;
    margin: 0;
    box-sizing: border-box;
+   font-family: Helvetica,Arial,sans-serif; 
 }
 
 body {
@@ -12,12 +13,33 @@ body {
    overflow: hidden;
 }
 
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
 li {
    list-style: none;
 }
 
+.relative {
+   position: relative
+}
+
+.absolute {
+   position: absolute
+}
+
+.flex {
+   display: flex;
+}
+
 .h100 {
    height: 100%;
+}
+
+.w100 {
+   width: 100%;
 }
 
 .radius {

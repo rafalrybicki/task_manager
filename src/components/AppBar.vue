@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="h100 w100">
       this is AppBar
    </div>
 </template>
@@ -15,6 +15,8 @@ export default {
       height: 43px;
       padding: 5px 12px;
       background-color: #FAFAFA;
-      position: sticky;
+      position: fixed;
+      top: 0;
+      left: 0;
    }
 </style>

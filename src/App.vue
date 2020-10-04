@@ -1,7 +1,10 @@
 <template>
-	<div id="app">
+	<div id="app" class="app flex">
 		<AppBar />
 		<Menu />
+		<main class="h100 w100">
+         <router-view></router-view>
+      </main>
 	</div>
 </template>
 
@@ -19,8 +22,12 @@ export default {
 </script>
 
 <style>
-	#app {
+	.app {
 		height: 100%;
 		width: 100%;
+	}
+
+	main {
+		padding-top: 43px;
 	}
 </style>

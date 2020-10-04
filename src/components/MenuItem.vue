@@ -1,6 +1,9 @@
 <template>
-   <li class="radius">
-      {{itemData.title}}
+   <li>
+      <router-link 
+         :to="itemData.to" 
+         class="flex radius"
+      >{{itemData.title}}</router-link>
    </li>
 </template>
 
@@ -16,7 +19,13 @@ export default {
 </script>
 
 <style scoped>
-   li {
+   a {
       height: 34px;
+      transition: all 0.1s;
+      margin-bottom: 5px;
+   }
+
+    a:hover, .router-link-exact-active {
+      background-color: white;
    }
 </style>

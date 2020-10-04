@@ -32,4 +32,8 @@ export default {
       width: 260px;
       padding: 0 12px 12px;
    }
+
+   ul {
+      padding-top: 43px;
+   }
 </style>
