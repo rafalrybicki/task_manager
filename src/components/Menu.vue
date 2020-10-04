@@ -30,11 +30,16 @@ export default {
 <style scoped>
    nav {
       background-color: #FAFAFA;
+      width: 0;
+      overflow: hidden;
+      transition: all 0.2s;
+   }
+
+   nav.show {
       width: 260px;
-      padding: 0 12px 12px;
    }
 
    ul {
-      padding-top: 43px;
+      padding: 43px 12px 0;
    }
 </style>

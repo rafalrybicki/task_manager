@@ -1,9 +1,9 @@
 <template>
 	<div id="app" class="app flex">
 		<AppBar>
-			<IconButton iconName="bars" />
+			<IconButton iconName="bars" @click.native="showMenu = !showMenu"/>
 		</AppBar>
-		<Menu />
+		<Menu :class="{show: showMenu}" />
 		<main class="h100 w100">
          <router-view></router-view>
       </main>
@@ -21,6 +21,11 @@ export default {
 		AppBar,
 		Menu,
 		IconButton
+	},
+	data() {
+		return {
+			showMenu: true
+		}
 	}
 }
 </script>
@@ -32,6 +37,6 @@ export default {
 	}
 
 	main {
-		padding-top: 43px;
+		padding: 63px 20px 20px;
 	}
 </style>
