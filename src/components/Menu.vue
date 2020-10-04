@@ -16,10 +16,11 @@ export default {
    data() {
       return {
          items: [
-            {to: '/asap', title: 'ASAP', icon: '?'},
-            {to: '/inbox', title: 'Inbox', icon: '?'},
-            {to: '/today', title: 'Today', icon: '?'},
-            {to: '/upcoming', title: 'Upcoming', icon: '?'},
+            {to: '/inbox', title: 'Inbox', icon: 'inbox'},
+            {to: '/important', title: 'Important', icon: 'star'},
+            {to: '/today', title: 'Today', icon: 'calendar'},
+            {to: '/upcoming', title: 'Upcoming', icon: 'calendar-alt'},
+            {to: '/done', title: 'Done', icon: 'check'},
          ]
       }
    }

@@ -3,7 +3,10 @@
       <router-link 
          :to="itemData.to" 
          class="flex radius"
-      >{{itemData.title}}</router-link>
+      >
+         <font-awesome-icon :icon="itemData.icon"></font-awesome-icon>
+         {{itemData.title}}
+      </router-link>
    </li>
 </template>
 
@@ -23,9 +26,15 @@ export default {
       height: 34px;
       transition: all 0.1s;
       margin-bottom: 5px;
+      padding-top: 8px;
    }
 
     a:hover, .router-link-exact-active {
       background-color: white;
+   }
+
+   svg {
+      margin: 0 10px;
+      margin-top: 1px;
    }
 </style>
