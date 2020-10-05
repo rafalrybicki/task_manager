@@ -1,5 +1,6 @@
 <template>
    <div>
+      <ProjectListGroup v-for="projectGroup in projectGroups" :key="projectGroup.name" :name="projectGroup.name" :projects="projectGroup.projects" />
       <ul>
          <ProjectListItem v-for="project in projects" :itemData="project" :key="project.to" />
       </ul>
@@ -7,10 +8,12 @@
 </template>
 
 <script>
+import ProjectListGroup from './ProjectListGroup'
 import ProjectListItem from './ProjectListItem';
 export default {
    components: {
-      ProjectListItem,
+      ProjectListGroup,
+      ProjectListItem
    },
    data() {
       return {
@@ -33,7 +36,9 @@ export default {
                      color: 'green',
                      to: '/test3'
                   },
-               ],
+               ]
+            },
+            {
                name: 'Group2',
                projects: [
                   {
