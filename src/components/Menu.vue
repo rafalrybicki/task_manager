@@ -40,6 +40,6 @@ export default {
    }
 
    ul {
-      padding: 43px 12px 0;
+      padding: 12px;
    }
 </style>

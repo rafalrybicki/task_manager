@@ -17,8 +17,8 @@ export default {
 
 <style scoped>
    button {
-      height: 28px;
-      width: 28px;
+      height: 33px;
+      width: 33px;
       z-index: 10;
       font-size: 18px;
       display: flex;

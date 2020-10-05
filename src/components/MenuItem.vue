@@ -25,7 +25,7 @@ export default {
    a {
       height: 34px;
       transition: all 0.1s;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       padding-top: 8px;
    }
 
