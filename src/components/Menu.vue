@@ -2,6 +2,8 @@
    <header class="relative">
       <nav class="h100">
          <SmartList />
+         <br>
+         <ProjectList />
          <MenuToolbar />
       </nav>
    </header>
@@ -9,11 +11,13 @@
 
 <script>
 import SmartList from './SmartList';
+import ProjectList from './ProjectList';
 import MenuToolbar from './MenuToolbar';
 
 export default {
    components: {
       SmartList,
+      ProjectList,
       MenuToolbar
    }
 }
