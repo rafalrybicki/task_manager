@@ -1,14 +1,14 @@
 <template>
    <ul>
-      <MenuItem v-for="item in items" :itemData="item" :key="item.to" />
+      <SmartListItem v-for="item in items" :itemData="item" :key="item.to" />
    </ul>
 </template>
 
 <script>
-import MenuItem from './MenuItem';
+import SmartListItem from './SmartListItem';
 export default {
    components: {
-      MenuItem,
+      SmartListItem,
    },
    data() {
       return {
