@@ -30,7 +30,7 @@ export default {
    }
 
     a:hover, .router-link-exact-active {
-      background-color: white;
+      background-color: lightgray;
    }
 
    svg {

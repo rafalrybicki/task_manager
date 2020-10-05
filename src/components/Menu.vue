@@ -1,17 +1,22 @@
 <template>
-   <nav class="h100">
-      <ul>
-         <MenuItem v-for="item in items" :itemData="item" :key="item.to" />
-      </ul>
-   </nav>
+   <header class="relative">
+      <nav class="h100">
+         <ul>
+            <MenuItem v-for="item in items" :itemData="item" :key="item.to" />
+         </ul>
+         <MenuToolbar />
+      </nav>
+   </header>
 </template>
 
 <script>
 import MenuItem from './MenuItem';
+import MenuToolbar from './MenuToolbar';
 
 export default {
    components: {
-      MenuItem
+      MenuItem,
+      MenuToolbar
    },
    data() {
       return {
@@ -28,18 +33,19 @@ export default {
 </script>
 
 <style scoped>
-   nav {
+   header {
       background-color: #FAFAFA;
+      padding-bottom: 25px;
       width: 0;
       overflow: hidden;
       transition: all 0.2s;
    }
 
-   nav.show {
+   header.show {
       width: 260px;
    }
-
-   ul {
+   
+   nav {
       padding: 12px;
    }
 </style>
