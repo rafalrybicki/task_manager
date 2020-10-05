@@ -1,33 +1,20 @@
 <template>
    <header class="relative">
       <nav class="h100">
-         <ul>
-            <MenuItem v-for="item in items" :itemData="item" :key="item.to" />
-         </ul>
+         <SmartList />
          <MenuToolbar />
       </nav>
    </header>
 </template>
 
 <script>
-import MenuItem from './MenuItem';
+import SmartList from './SmartList';
 import MenuToolbar from './MenuToolbar';
 
 export default {
    components: {
-      MenuItem,
+      SmartList,
       MenuToolbar
-   },
-   data() {
-      return {
-         items: [
-            {to: '/inbox', title: 'Inbox', icon: 'inbox'},
-            {to: '/important', title: 'Important', icon: 'star'},
-            {to: '/today', title: 'Today', icon: 'calendar'},
-            {to: '/upcoming', title: 'Upcoming', icon: 'calendar-alt'},
-            {to: '/done', title: 'Done', icon: 'check'},
-         ]
-      }
    }
 }
 </script>
