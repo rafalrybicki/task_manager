@@ -3,7 +3,7 @@
       <font-awesome-icon :icon="open ? 'folder-open' : 'folder'"></font-awesome-icon>
       <span>{{ name }}</span>
       <ul v-show="open">
-         <ProjectListItem v-for="project in projects" :itemData="project" :key="project.to" />
+         <ProjectListItem v-for="project in projects" :project="project" :key="project.path" />
       </ul>
       <br>
    </div>

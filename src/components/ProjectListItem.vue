@@ -1,11 +1,11 @@
 <template>
    <li>
       <router-link 
-         :to="itemData.to" 
+         :to="project.path" 
          class="flex radius"
       >
-         <span class="color" :style="{backgroundColor: itemData.color}"></span>
-         {{itemData.title}}
+         <span class="color" :style="{backgroundColor: project.color}"></span>
+         {{project.name}}
       </router-link>
    </li>
 </template>
@@ -13,7 +13,7 @@
 <script>
 export default {
    props: {
-      itemData: {
+      project: {
          type: Object,
          required: true
       }

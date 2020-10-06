@@ -1,6 +1,6 @@
 <template>
    <ul>
-      <SmartListItem v-for="item in items" :itemData="item" :key="item.to" />
+      <SmartListItem v-for="list in smartLists" :itemData="list" :key="list.path" />
    </ul>
 </template>
 
@@ -10,15 +10,9 @@ export default {
    components: {
       SmartListItem,
    },
-   data() {
-      return {
-         items: [
-            {to: '/inbox', title: 'Inbox', icon: 'inbox'},
-            {to: '/important', title: 'Important', icon: 'star'},
-            {to: '/today', title: 'Today', icon: 'calendar'},
-            {to: '/upcoming', title: 'Upcoming', icon: 'calendar-alt'},
-            {to: '/done', title: 'Done', icon: 'check'},
-         ]
+   computed: {
+      smartLists() {
+         return this.$store.state.smartLists
       }
    }
 }

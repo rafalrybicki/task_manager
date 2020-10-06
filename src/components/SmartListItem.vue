@@ -1,11 +1,11 @@
 <template>
    <li>
       <router-link 
-         :to="itemData.to" 
+         :to="itemData.path" 
          class="flex radius"
       >
          <font-awesome-icon :icon="itemData.icon"></font-awesome-icon>
-         {{itemData.title}}
+         {{itemData.name}}
       </router-link>
    </li>
 </template>
