@@ -2,10 +2,10 @@
    <li>
       <router-link 
          :to="itemData.path" 
-         class="flex radius"
+         class="sm-item flex"
       >
-         <font-awesome-icon :icon="itemData.icon"></font-awesome-icon>
-         {{itemData.name}}
+         <font-awesome-icon :color="itemData.color || 'black'" :icon="itemData.icon"></font-awesome-icon>
+         <span class="name">{{itemData.name}}</span>
       </router-link>
    </li>
 </template>
@@ -22,19 +22,30 @@ export default {
 </script>
 
 <style scoped>
-   a {
+   .sm-item {
       height: 34px;
       transition: all 0.1s;
-      margin-bottom: 2px;
-      padding-top: 8px;
+      padding: 0 14px;
+      border-bottom: 1px solid #E5E5E6;
+      align-items: center;
    }
 
-    a:hover, .router-link-exact-active {
-      background-color: lightgray;
+   .sm-item svg {
+      width: 18px;
+      height: 18px;
+      margin-right: 12px;
    }
 
-   svg {
-      margin: 0 10px;
+   .sm-item .name {
       margin-top: 1px;
+      flex-grow: 1;
+   }
+
+   .sm-item:hover {
+      background-color: #F7F7F7;
+   }
+
+   .router-link-exact-active .name {
+      color: blue;
    }
 </style>

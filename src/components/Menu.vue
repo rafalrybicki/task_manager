@@ -25,12 +25,13 @@ export default {
 
 <style scoped>
    header {
-      padding-top: 30px;
       z-index: 100;
-      background-color: white;
+      background-color: #FAFAFA;
       width: 0;
       overflow: hidden;
       transition: all 0.2s;
+      box-shadow: 1px 0px 4px rgba(0,0,0,.2);
+      padding-top: 33px;
    }
 
    header.show {

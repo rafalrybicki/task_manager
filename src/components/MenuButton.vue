@@ -17,8 +17,8 @@ export default {
 
 <style>
    .menu-btn {
-      top: 2px;
-      left: 2px;
+      top: 0;
+      left: 6px;
    }
 
    @media only screen and (min-width: 767px) {

@@ -1,5 +1,5 @@
 <template>
-   <ul>
+   <ul class="smart-list">
       <SmartListItem v-for="list in smartLists" :itemData="list" :key="list.path" />
    </ul>
 </template>
@@ -17,3 +17,10 @@ export default {
    }
 }
 </script>
+
+<style scoped>
+   .smart-list {
+      background-color: white;
+      padding-top: 5px;
+   }
+</style>
