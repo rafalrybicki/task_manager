@@ -6,6 +6,8 @@
       >
          <font-awesome-icon :color="itemData.color || 'black'" :icon="itemData.icon"></font-awesome-icon>
          <span class="name">{{itemData.name}}</span>
+         <span class="overdue">2</span>
+         <span class="tasks">4</span>
       </router-link>
    </li>
 </template>
@@ -24,7 +26,7 @@ export default {
 <style scoped>
    .sm-item {
       height: 34px;
-      transition: all 0.1s;
+      transition: background 0.2s;
       padding: 0 14px;
       border-bottom: 1px solid #E5E5E6;
       align-items: center;
@@ -47,5 +49,24 @@ export default {
 
    .router-link-exact-active .name {
       color: blue;
+      font-weight: 500;
    }
+
+   .tasks {
+      font-size: 12px;
+      margin-left: 5px;
+   }
+
+   .overdue {
+      font-size: 12px;
+      border-radius: 50%;
+      background-color: #FCEBEA;
+      min-height: 20px;
+      min-width: 20px;
+      text-align: center;
+      padding-top: 3px;
+      color: red;
+   }
+
+   
 </style>

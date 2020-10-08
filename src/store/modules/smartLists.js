@@ -5,7 +5,7 @@ const state = () => ([
       icon: 'inbox',
       totalCount: 7,
       overdue: 2,
-      color: 'navy'
+      color: 'darkblue'
    },
    {
       path: '/important',
@@ -21,7 +21,7 @@ const state = () => ([
       icon: 'calendar',
       totalCount: 7,
       overdue: 2,
-      color: 'steelblue'
+      color: 'brown'
    },
    {
       path: '/upcoming',
@@ -29,7 +29,7 @@ const state = () => ([
       icon: 'calendar-alt',
       totalCount: 7,
       overdue: 2,
-      color: 'orange'
+      color: 'black'
    },
    {
       path: '/done',

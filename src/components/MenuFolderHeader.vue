@@ -1,0 +1,86 @@
+<template>
+   <div 
+      class="projects-list-header flex relative" 
+      tabindex="0" 
+      @click="$emit('toggle-list')"
+   >
+      <font-awesome-icon 
+         :icon="open ? 'folder-open' : 'folder'" 
+         class="folder-icon absolute"
+      />
+      <span class="name">{{ name }}</span>
+      <font-awesome-icon 
+         icon="plus" 
+         @click.stop="addNewProject" 
+         class="action-icon"
+      />
+      <font-awesome-icon 
+         icon="ellipsis-h" 
+         @click.stop="addNewProject" 
+         class="action-icon"
+      />
+   </div>
+</template>
+
+<script>
+export default {
+   props: {
+      name: {
+         type: String,
+         required: true
+      },
+      open: {
+         type: Boolean,
+         required:true
+      }
+   },
+   methods: {
+      addNewProject() {
+         alert('coming soon :-)')
+      }
+   }
+}
+</script>
+
+<style scoped>
+   .projects-list-header {
+      color: #424242;
+      cursor: pointer;
+      min-height: 37px;
+      padding-left: 43px;
+      padding-right: 5px;
+      align-items: center;
+      border-bottom: 1px solid #E5E5E6;
+      background-color: #FAFAFA;
+      text-transform: uppercase;
+      font-weight: 500;
+   }
+
+   .projects-list-header .folder-icon {
+      margin-right: 14px;
+      margin-top: 1px;
+      top: 9px;
+      left: 16px;
+   }
+
+   .projects-list-header .name {
+      flex-grow: 1;
+   }
+
+   .projects-list-header .action-icon {
+      height: 26px;
+      width: 26px;
+      padding: 7px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: all 0.1s;
+   }
+
+   .projects-list-header:hover .action-icon {
+      opacity: 1;
+   }
+
+   .projects-list-header .action-icon:hover {
+      background-color: #E5E5E6;
+   }
+</style>

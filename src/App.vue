@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="app" v-on:close-menu="showMenu = false">
 		<Menu :class="{show: showMenu}" />
-		<MenuButton @click.native="showMenu = !showMenu" />
+		<NavButton @click.native="showMenu = !showMenu" />
 		<main class="h100 relative">
          <router-view></router-view>
       </main>
@@ -14,14 +14,14 @@
 
 <script>
 import Menu from './components/Menu.vue'
-import MenuButton from './components/MenuButton.vue'
+import NavButton from './components/NavButton.vue'
 import Overlay from './components/Overlay.vue'
 
 export default {
 	name: 'App',
 	components: {
 		Menu,
-		MenuButton,
+		NavButton,
 		Overlay
 	},
 	data() {
