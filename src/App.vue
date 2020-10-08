@@ -1,28 +1,27 @@
 <template>
 	<div id="app" class="app" v-on:close-menu="showMenu = false">
 		<Menu :class="{show: showMenu}" />
-		<main class="h100 w100 relative">
-			<IconButton 
-				iconName="bars" 
-				@click.native="showMenu = !showMenu"
-				class="menu-btn absolute"
-			/>
+		<MenuButton @click.native="showMenu = !showMenu" />
+		<main class="h100 relative">
          <router-view></router-view>
       </main>
-		<Overlay />
+		<Overlay 
+			@click.native="showMenu = false" 
+			:class="{show: showMenu}"
+		/>
 	</div>
 </template>
 
 <script>
 import Menu from './components/Menu.vue'
-import IconButton from './components/IconButton.vue'
+import MenuButton from './components/MenuButton.vue'
 import Overlay from './components/Overlay.vue'
 
 export default {
 	name: 'App',
 	components: {
 		Menu,
-		IconButton,
+		MenuButton,
 		Overlay
 	},
 	data() {
@@ -39,8 +38,9 @@ export default {
 		width: 100%;
 		overflow: hidden;
 	}
-	.menu-btn {
-		top: 12px;
-		left: 15px;
+
+	main {
+		width: calc(100% - 280px);
+		margin: 0 auto;
 	}
 </style>
