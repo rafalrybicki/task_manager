@@ -1,6 +1,6 @@
 <template>
-   <header class="relative">
-      <nav class="h100">
+   <header class="absolute h100 w100 flex">
+      <nav class="menu">
          <SmartList />
          <br>
          <ProjectList />
@@ -25,18 +25,19 @@ export default {
 
 <style scoped>
    header {
-      background-color: #FAFAFA;
-      padding-bottom: 25px;
+      z-index: 10;
+      background-color: white;
       width: 0;
       overflow: hidden;
       transition: all 0.2s;
    }
 
    header.show {
-      width: 260px;
+      width: 100vw;
    }
-   
-   nav {
-      padding: 12px;
+
+   .menu {
+      width: 280px;
+      z-index: 10;
    }
 </style>

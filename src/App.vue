@@ -1,5 +1,5 @@
 <template>
-	<div id="app" class="app flex">
+	<div id="app" class="app" v-on:close-menu="showMenu = false">
 		<Menu :class="{show: showMenu}" />
 		<main class="h100 w100 relative">
 			<IconButton 
@@ -9,18 +9,21 @@
 			/>
          <router-view></router-view>
       </main>
+		<Overlay />
 	</div>
 </template>
 
 <script>
 import Menu from './components/Menu.vue'
 import IconButton from './components/IconButton.vue'
+import Overlay from './components/Overlay.vue'
 
 export default {
 	name: 'App',
 	components: {
 		Menu,
-		IconButton
+		IconButton,
+		Overlay
 	},
 	data() {
 		return {
@@ -34,12 +37,8 @@ export default {
 	.app {
 		height: 100%;
 		width: 100%;
+		overflow: hidden;
 	}
-
-	main {
-		padding: 40px 80px;
-	}
-
 	.menu-btn {
 		top: 12px;
 		left: 15px;
