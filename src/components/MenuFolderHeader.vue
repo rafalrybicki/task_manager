@@ -7,6 +7,7 @@
       <font-awesome-icon 
          :icon="open ? 'folder-open' : 'folder'" 
          class="folder-icon absolute"
+         :class="{open: open}"
       />
       <span class="name">{{ name }}</span>
       <font-awesome-icon 
@@ -51,16 +52,21 @@ export default {
       padding-right: 5px;
       align-items: center;
       border-bottom: 1px solid #E5E5E6;
-      background-color: #FAFAFA;
       text-transform: uppercase;
       font-weight: 500;
    }
 
    .projects-list-header .folder-icon {
-      margin-right: 14px;
-      margin-top: 1px;
       top: 9px;
-      left: 16px;
+      left: 14px;
+      height: 18px;
+      width: 18px;
+   }
+
+   .projects-list-header .folder-icon.open {
+      height: 21.5px;
+      width: 21.5px;
+      top: 8px;
    }
 
    .projects-list-header .name {

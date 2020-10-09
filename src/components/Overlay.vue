@@ -4,20 +4,15 @@
 
 <style>
    .overlay {
+      z-index: 10;
       top: 0;
       left: 0;
       opacity: 0;
-      background-color: rgb(33, 33, 33);
+      background-color: black;
       transition: 0.2s all;
    }
 
    .overlay.show {
-      opacity: 0.46;
-   }
-
-   @media only screen and (min-width: 767px) {
-      .overlay {
-         display: none;
-      }
+      opacity: 0.2;
    }
 </style>

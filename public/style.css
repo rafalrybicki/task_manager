@@ -25,6 +25,11 @@ li {
 button {
    cursor: pointer;
    border: 0;
+   background-color: inherit;
+}
+
+input {
+   border: 0;
 }
 
 .relative {
@@ -39,6 +44,14 @@ button {
    display: flex;
 }
 
+.block {
+   display: block;
+}
+
+.hide {
+   display: none;
+}
+
 .h100 {
    height: 100%;
 }
@@ -48,5 +61,5 @@ button {
 }
 
 .radius {
-   border-radius: 3px;
+   border-radius: 10px;
 }

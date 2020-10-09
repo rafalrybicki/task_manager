@@ -1,28 +1,25 @@
 <template>
 	<div id="app" class="app" v-on:close-menu="showMenu = false">
-		<Menu :class="{show: showMenu}" />
 		<NavButton @click.native="showMenu = !showMenu" />
+		<Menu :class="{show: showMenu}" />
 		<main class="h100 relative">
          <router-view></router-view>
       </main>
-		<Overlay 
-			@click.native="showMenu = false" 
-			:class="{show: showMenu}"
-		/>
+		<NewFolder />
 	</div>
 </template>
 
 <script>
 import Menu from './components/Menu.vue'
 import NavButton from './components/NavButton.vue'
-import Overlay from './components/Overlay.vue'
+import NewFolder from './components/NewFolder.vue'
 
 export default {
 	name: 'App',
 	components: {
 		Menu,
 		NavButton,
-		Overlay
+		NewFolder
 	},
 	data() {
 		return {

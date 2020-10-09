@@ -6,7 +6,7 @@
          @toggle-list="toggleList"
          @keydown.native.enter="toggleList"
       />
-      <MenuList>
+      <MenuList v-if="isOpen">
          <MenuListItem
             class="project-list"
             v-for="project in projects" 
