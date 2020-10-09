@@ -1,5 +1,8 @@
 <template>
-   <header class="absolute h100 flex">
+   <header 
+      class="header absolute h100 flex"
+      :class="{show}"
+   >
       <nav class="menu w100">
          <MenuList class="smart-list">
             <MenuListItem 
@@ -15,12 +18,16 @@
          </MenuList>
          <MenuFolder 
             v-for="(folder, index) in folders"
-            :key="folder.name + index" 
+            :key="folder.name + '_' + index" 
             :projects="folder.projects"
             :name="folder.name"
          />
-         <MenuToolbar />
+         <MenuToolbar @click.native="close" />
       </nav>
+      <Overlay 
+         @click.native="close"
+         :class="{show: show}"
+      />
    </header>
 </template>
 
@@ -29,38 +36,62 @@ import MenuList from './MenuList';
 import MenuListItem from './MenuListItem';
 import MenuFolder from './MenuFolder';
 import MenuToolbar from './MenuToolbar';
+import Overlay from './Overlay';
 
 export default {
    components: {
       MenuList,
       MenuListItem,
       MenuFolder,
-      MenuToolbar
+      MenuToolbar,
+      Overlay
    },
    computed: {
+      show() {
+			return this.$store.state.menu
+		},
       folders() {
          return this.$store.state.projectsFolders
       },
       smartLists() {
          return this.$store.state.smartLists
       }
+   },
+   methods: {
+      close() {
+         console.log('close')
+      }
    }
 }
 </script>
 
 <style scoped>
-   header {
+   .header {
       z-index: 100;
-      background-color: #FAFAFA;
       width: 0;
       overflow: hidden;
       transition: all 0.2s;
       box-shadow: 1px 0px 4px rgba(0,0,0,.2);
-      padding-top: 33px;
       font-size: 14px;
    }
 
-   header.show {
+   .header.show {
+      width: auto;
+   }
+
+   .header .menu {
+      padding-top: 33px;
+      background-color: #FAFAFA;
+   }
+
+   .header.show .menu {
       width: 280px;
+      z-index: 100;
+   }
+
+   @media only screen and (max-width: 768px) {
+      .header.show {
+         width: 100%;
+      }
    }
 </style>

@@ -1,5 +1,5 @@
 <template>
-   <div class="overlay absolute h100 w100"></div>
+   <div class="overlay absolute" />
 </template>
 
 <style>
@@ -10,6 +10,8 @@
       opacity: 0;
       background-color: black;
       transition: 0.2s all;
+      width: 100vw;
+      height: 100vh;
    }
 
    .overlay.show {

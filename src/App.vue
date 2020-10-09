@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="app" v-on:close-menu="showMenu = false">
-		<NavButton @click.native="showMenu = !showMenu" />
-		<Menu :class="{show: showMenu}" />
+		<NavButton />
+		<Menu />
 		<main class="h100 relative">
          <router-view></router-view>
       </main>
@@ -20,11 +20,6 @@ export default {
 		Menu,
 		NavButton,
 		NewFolder
-	},
-	data() {
-		return {
-			showMenu: true
-		}
 	}
 }
 </script>

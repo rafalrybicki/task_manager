@@ -9,6 +9,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
    state: {
+      menu: true,
       newFolder: false
    },
    modules: {
