@@ -1,23 +1,26 @@
 <template>
-   <div class="new-folder absolute w100 h100 flex">
+   <div class="new-project absolute w100 h100 flex">
       <form 
-         @submit.prevent="addLProject" 
+         @submit.prevent="addProject" 
          class="form radius"
          :class="{show}"
       >
-         <p class="title">Add folder</p>
+         <p class="title">Add project</p>
          <label 
-            for="folderName"
-            class="folder-name-label hide"
+            for="projectName"
+            class="project-name-label hide"
          >Folder Name</label>
          <input 
             type="text" 
-            id="folderName"
-            placeholder="Enter a name for your folder"
-            class="folder-name-input w100"
+            id="projectName"
+            placeholder="Enter a name for your project"
+            class="project-name-input w100"
             maxlength="30"
-            v-model="folderName"
+            v-model="projectName"
          >
+         <NewProjectIconPicker 
+            @set-icon="setIcon"
+         />
          <button 
             type="button" 
             class="btn"
@@ -37,24 +40,32 @@
 
 <script>
 import Overlay from './Overlay'
+import NewProjectIconPicker from './NewProjectIconPicker'
 
 export default {
    components: {
-      Overlay
+      Overlay,
+      NewProjectIconPicker
    },
    data() {
       return {
-         folderName: ''
+         projectName: '',
+         color: "#000000",
+         icon: 'circle'
       }
    },
    computed: {
       show() {
-         return this.$store.state.newFolder
+         return this.$store.state.newProject
       }
    },
    methods: {
+      setIcon(icon) {
+         console.log('emit')
+         console.log(icon)
+      },
       addProject() {
-         console.log('folder')
+         console.log('project')
       },
       close() {
          console.log('close')
@@ -64,7 +75,7 @@ export default {
 </script>
 
 <style scoped>
-   .new-folder {
+   .new-project {
       top: 0;
       left: 0;
       z-index: 1000;
@@ -76,7 +87,6 @@ export default {
       margin-top: 100px;
       padding: 20px;
       width: 400px;
-     
       background-color: white;
       transform: scale(0);
       transition: transform 0.2s;
@@ -92,12 +102,12 @@ export default {
       font-weight: 500;
    }
 
-   .form .folder-name-label {
+   .form .project-name-label {
       color: #777;
       font-weight: 500;
    }
 
-   .form .folder-name-input {
+   .form .project-name-input {
       background-color: #f9f9f9;
       border-radius: 5px;
       height: 37px;
@@ -110,6 +120,7 @@ export default {
       border-radius: 5px;
       font-size: 14px;
       width: 48.5%;
+      font-weight: 500;
    }
 
    .form .btn:first-of-type {

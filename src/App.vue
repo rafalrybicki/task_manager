@@ -6,6 +6,7 @@
          <router-view></router-view>
       </main>
 		<NewFolder />
+		<NewProject />
 	</div>
 </template>
 
@@ -13,13 +14,15 @@
 import Menu from './components/Menu.vue'
 import NavButton from './components/NavButton.vue'
 import NewFolder from './components/NewFolder.vue'
+import NewProject from './components/NewProject.vue'
 
 export default {
 	name: 'App',
 	components: {
 		Menu,
 		NavButton,
-		NewFolder
+		NewFolder,
+		NewProject
 	}
 }
 </script>
