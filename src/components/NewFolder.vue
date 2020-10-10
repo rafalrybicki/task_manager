@@ -1,8 +1,8 @@
 <template>
-   <fragment>
+   <div class="new-folder absolute w100 h100 flex">
       <form 
          @submit.prevent="addList" 
-         class="form radius absolute"
+         class="form radius"
          :class="{show}"
       >
          <p class="title">Add folder</p>
@@ -28,8 +28,11 @@
             class="btn"
          >Save</button>
       </form>
-      <Overlay :class="{show}"/>
-   </fragment>
+      <Overlay 
+         :class="{show}"
+         @click.native="close"
+      />
+   </div>
 </template>
 
 <script>
@@ -61,12 +64,18 @@ export default {
 </script>
 
 <style scoped>
+   .new-folder {
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      justify-content: center;
+   }
+
    .form {
-      z-index: 100;
-      top: 100px;
-      left: 50%;
+      margin-top: 100px;
       padding: 20px;
       width: 400px;
+      height: 156px;
       background-color: white;
       transform: scale(0);
       transition: transform 0.2s;
@@ -110,5 +119,4 @@ export default {
       background-color: lightgreen;
       margin-left: 4%
    }
-
 </style>
