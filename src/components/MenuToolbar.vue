@@ -6,7 +6,7 @@
       />
       <IconButton 
          iconName="folder" 
-         @click.native="newFolder" 
+         @click.native.stop="newFolder" 
       />
    </div>
 </template>

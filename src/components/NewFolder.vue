@@ -1,6 +1,7 @@
 <template>
    <form 
       @submit.prevent="addFolder" 
+      v-outside-click="close"
       class="new-folder absolute card"
       :class="{show}"
    >

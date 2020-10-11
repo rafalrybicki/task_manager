@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store/'
 import Fragment from 'vue-fragment'
+import OutsideClick from './directives/OutsideClick'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { 
   faInbox,
@@ -147,6 +148,8 @@ library.add(
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
+
+Vue.directive('outside-click', OutsideClick)
 
 Vue.use(Fragment.Plugin)
 
