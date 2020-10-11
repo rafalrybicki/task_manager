@@ -1,47 +1,37 @@
 <template>
-   <div class="new-folder absolute w100 h100 flex">
-      <form 
-         @submit.prevent="addLProject" 
-         class="form radius"
-         :class="{show}"
+   <form 
+      @submit.prevent="addFolder" 
+      class="new-folder absolute card"
+      :class="{show}"
+   >
+      <p class="title">Add folder</p>
+      <label 
+         for="folderName"
+         class="folder-name-label hide"
+      >Folder Name</label>
+      <input 
+         type="text" 
+         id="folderName"
+         placeholder="Enter a name for your folder"
+         class="folder-name-input w100"
+         maxlength="30"
+         v-model="folderName"
       >
-         <p class="title">Add folder</p>
-         <label 
-            for="folderName"
-            class="folder-name-label hide"
-         >Folder Name</label>
-         <input 
-            type="text" 
-            id="folderName"
-            placeholder="Enter a name for your folder"
-            class="folder-name-input w100"
-            maxlength="30"
-            v-model="folderName"
-         >
-         <button 
-            type="button" 
-            class="btn"
-            @click="close"
-         >Cancel</button>
-         <button 
-            type="submit" 
-            class="btn"
-         >Save</button>
-      </form>
-      <Overlay 
-         :class="{show}"
-         @click.native="close"
-      />
-   </div>
+      <button 
+         type="button" 
+         class="btn"
+         @click="close"
+      >Cancel</button>
+      <button 
+         type="submit" 
+         class="btn"
+      >Save</button>
+   </form>
 </template>
 
 <script>
-import Overlay from './Overlay'
 
 export default {
-   components: {
-      Overlay
-   },
    data() {
       return {
          folderName: ''
@@ -53,11 +43,11 @@ export default {
       }
    },
    methods: {
-      addProject() {
-         console.log('folder')
+      addFolder() {
+         console.log('new folder')
       },
       close() {
-         console.log('close')
+         console.log('close new folder')
       }
    }
 }
@@ -65,39 +55,31 @@ export default {
 
 <style scoped>
    .new-folder {
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      justify-content: center;
-      align-items: flex-start;
-   }
-
-   .form {
-      margin-top: 100px;
+      top: 100px;
+      left: 50%;
+      z-index: 111;
       padding: 20px;
       width: 400px;
-     
       background-color: white;
       transform: scale(0);
       transition: transform 0.2s;
       font-size: 14px;
-      box-shadow: rgba(15,15,15,.05) 0px 0px 0px 1px, rgba(15,15,15,.1) 0px 5px 10px, rgba(15,15,15,.2) 0px 15px 40px;
    }
 
-   .form.show {
+   .new-folder.show {
       transform: scale(1);
    }
 
-   .form .title {
+   .new-folder .title {
       font-weight: 500;
    }
 
-   .form .folder-name-label {
+   .new-folder .folder-name-label {
       color: #777;
       font-weight: 500;
    }
 
-   .form .folder-name-input {
+   .new-folder .folder-name-input {
       background-color: #f9f9f9;
       border-radius: 5px;
       height: 37px;
@@ -105,18 +87,19 @@ export default {
       padding-left: 7px;
    }
 
-   .form .btn {
+   .new-folder .btn {
       padding: 6px;
       border-radius: 5px;
       font-size: 14px;
       width: 48.5%;
+      font-weight: 500;
    }
 
-   .form .btn:first-of-type {
+   .new-folder .btn:first-of-type {
       background-color: #f9f9f9;
    }
 
-   .form .btn:last-of-type {
+   .new-folder .btn:last-of-type {
       background-color: lightgreen;
       margin-left: 3%
    }

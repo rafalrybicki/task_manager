@@ -5,8 +5,9 @@
 		<main class="h100 relative">
          <router-view></router-view>
       </main>
-		<NewFolder />
-		<NewProject />
+		<NewFolder v-if="showNewFolder" />
+		<NewProject v-if="showNewProject" />
+		<Overlay :class="{show: showOverlay}" />
 	</div>
 </template>
 
@@ -15,6 +16,7 @@ import Menu from './components/Menu.vue'
 import NavButton from './components/NavButton.vue'
 import NewFolder from './components/NewFolder.vue'
 import NewProject from './components/NewProject.vue'
+import Overlay from './components/Overlay.vue'
 
 export default {
 	name: 'App',
@@ -22,7 +24,22 @@ export default {
 		Menu,
 		NavButton,
 		NewFolder,
-		NewProject
+		NewProject,
+		Overlay
+	},
+	computed: {
+		showNewFolder() {
+         return this.$store.state.newFolder
+		},
+		showNewProject() {
+         return this.$store.state.newProject
+		},
+		showMenu() {
+			return this.$store.state.menu
+		},
+		showOverlay() {
+			return this.showNewFolder || this.showNewProject || (this.showMenu && window.innerWidth < 769)
+		}
 	}
 }
 </script>

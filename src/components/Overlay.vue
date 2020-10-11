@@ -1,10 +1,22 @@
 <template>
-   <div class="overlay absolute" />
+   <div 
+      class="overlay absolute" 
+      :style="{zIndex: zIndex}"
+   />
 </template>
+
+<script>
+export default {
+   computed: {
+      zIndex() {
+         return (window.innerWidth < 769 && this.$store.state.menu ? 100 : 110)
+      }
+   }
+}
+</script>
 
 <style>
    .overlay {
-      z-index: -1;
       top: 0;
       left: 0;
       opacity: 0;

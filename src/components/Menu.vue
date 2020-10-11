@@ -24,10 +24,6 @@
          />
          <MenuToolbar @click.native="close" />
       </nav>
-      <Overlay 
-         @click.native="close"
-         :class="{show: show}"
-      />
    </header>
 </template>
 
@@ -36,7 +32,6 @@ import MenuList from './MenuList';
 import MenuListItem from './MenuListItem';
 import MenuFolder from './MenuFolder';
 import MenuToolbar from './MenuToolbar';
-import Overlay from './Overlay';
 
 export default {
    components: {
@@ -44,7 +39,6 @@ export default {
       MenuListItem,
       MenuFolder,
       MenuToolbar,
-      Overlay
    },
    computed: {
       show() {
@@ -67,7 +61,7 @@ export default {
 
 <style scoped>
    .header {
-      z-index: 100;
+      z-index: 101;
       width: 0;
       overflow: hidden;
       transition: all 0.2s;

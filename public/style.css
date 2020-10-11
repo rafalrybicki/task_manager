@@ -60,6 +60,8 @@ input {
    width: 100%;
 }
 
-.radius {
-   border-radius: 10px;
+.card {
+   border-radius: 7px;
+   background-color: ehite;
+   box-shadow: rgba(15,15,15,.05) 0px 0px 0px 1px, rgba(15,15,15,.1) 0px 5px 10px, rgba(15,15,15,.2) 0px 15px 40px;
 }

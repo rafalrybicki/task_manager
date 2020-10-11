@@ -1,7 +1,7 @@
 <template>
    <form 
       @submit.prevent="submit"
-      class="icon-picker"
+      class="icon-picker card absolute w100"
    >
       <div class="colors w100">
          <div 
@@ -10,6 +10,8 @@
             :key="color"
             :style="{borderColor: index === colorIndex ? colors[colorIndex] : 'transparent'}"
             @click="setColor(index)"
+            @keyup.enter="setColor(index)"
+            tabindex="0"
          >
             <font-awesome-icon 
                icon="circle" 
@@ -26,14 +28,21 @@
             :class="{active: index === iconIndex}"
             :style="{borderColor: index === iconIndex ? colors[colorIndex] : 'transparent'}"
             @click="setIcon(index)"
+            @keyup.enter="setIcon(index)"
+            tabindex="0"
          >
             <font-awesome-icon 
                :icon="icon" 
                class="icon"
                :color="colors[colorIndex]"
-         />
+            />
          </div>
       </div>
+      <button 
+         type="button" 
+         class="btn"
+         @click="close"
+      >Cancel</button>
       <button 
          type="submit" 
          class="btn"
@@ -46,14 +55,22 @@ import { colors } from '../helpers/colors'
 import { icons } from '../helpers/icons'
 
 export default {
+   props: {
+      initialColor: {
+         type: Number,
+         required: true
+      },
+      initialIcon: {
+         type: Number,
+         required: true
+      }
+   },
    data() {
       return {
          colors,
-         colorIndex: 0,
          icons,
-         iconIndex: 0,
-         showIcons: false,
-         showColors: false
+         colorIndex: this.initialColor,
+         iconIndex: this.initialIcon
       }
    },
    methods: {
@@ -64,17 +81,32 @@ export default {
          this.iconIndex = index
       },
       submit() {
-         console.log('submit')
-         this.$emit('set-icon', {
-            color: this.colors[this.colorIndex],
-            icon: this.icons[this.iconIndex],
+         this.$emit('set-data', {
+            color: {
+               index: this.colorIndex,
+               value: this.colors[this.colorIndex]
+            },
+            icon: {
+               index: this.iconIndex,
+               value: this.icons[this.iconIndex]
+            }
          })
+      },
+      close() {
+         this.$emit('close-picker')
       }
    }
 }
 </script>
 
 <style>
+   .icon-picker {
+      background-color: white;
+      padding: 20px;
+      top: 0;
+      left: 0;
+   }
+
    .icon-picker .colors, .icon-picker .icons {
       display: grid;
       grid-template-columns: auto auto auto auto auto auto auto;
@@ -96,5 +128,22 @@ export default {
       border-style: solid;
       border-radius: 5px;
       cursor: pointer;
+   }
+
+   .icon-picker .btn {
+      padding: 6px;
+      border-radius: 5px;
+      font-size: 14px;
+      width: 48.5%;
+      font-weight: 500;
+   }
+
+   .icon-picker .btn:first-of-type {
+      background-color: #f9f9f9;
+   }
+
+   .icon-picker .btn:last-of-type {
+      background-color: lightgreen;
+      margin-left: 3%
    }
 </style>

@@ -11,7 +11,7 @@ export default new Vuex.Store({
    state: {
       menu: true,
       newFolder: false,
-      newProject: true
+      newProject: false
    },
    modules: {
       smartLists,
