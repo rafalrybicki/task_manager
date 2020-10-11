@@ -29,10 +29,10 @@ export default {
 	},
 	computed: {
 		showNewFolder() {
-         return this.$store.state.newFolder
+         return this.$store.state.folders.newFolder
 		},
 		showNewProject() {
-         return this.$store.state.newProject
+         return this.$store.state.folders.newProject
 		},
 		showMenu() {
 			return this.$store.state.menu

@@ -5,6 +5,7 @@
          :open="isOpen"
          @toggle-list="toggleList"
          @keydown.native.enter="toggleList"
+         :folderId="id"
       />
       <MenuList v-if="isOpen">
          <MenuListItem
@@ -33,6 +34,10 @@ export default {
          type: String,
          required: true
       },
+      id: {
+         type: Number,
+         required: true
+      },
       projects: {
          type: Array,
          required: true
@@ -50,15 +55,7 @@ export default {
    },
    methods: {
       toggleList() {
-         this.setHeight()
          this.isOpen = !this.isOpen
-      },
-      setHeight() {
-         if (this.isOpen === false) {
-            this.$refs.menuFolder.style.height = (this.projects.length * 37) + 37 + 'px'
-         } else {
-            this.$refs.menuFolder.style.height = '37px'
-         }
       }
    }
 }
@@ -70,7 +67,8 @@ export default {
       margin-bottom: 20px;
       overflow: hidden;
       transition: all 0.25s;
-      height: 37px;
+    
+      height: auto;
       margin-top: 20px;
    }
 </style>

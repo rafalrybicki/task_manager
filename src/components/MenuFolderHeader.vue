@@ -33,11 +33,15 @@ export default {
       open: {
          type: Boolean,
          required:true
+      },
+      folderId: {
+         type: Number,
+         required: true
       }
    },
    methods: {
       addNewProject() {
-         alert('coming soon :-)')
+         this.$store.commit('toggleNewProject', this.folderId)
       }
    }
 }

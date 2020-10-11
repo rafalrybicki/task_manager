@@ -9,7 +9,8 @@
 export default {
    computed: {
       zIndex() {
-         return (window.innerWidth < 769 && this.$store.state.menu ? 100 : 110)
+         // return (window.innerWidth < 769 && this.$store.state.menu ? 100 : 110)
+         return -1
       }
    }
 }

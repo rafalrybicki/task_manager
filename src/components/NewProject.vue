@@ -42,6 +42,7 @@
       <button 
          type="submit" 
          class="btn"
+         :disabled="disabled"
       >Save</button>
    </form>
 </template>
@@ -69,7 +70,10 @@ export default {
    },
    computed: {
       show() {
-         return this.$store.state.newProject
+         return this.$store.state.folders.newProject
+      },
+      disabled() {
+         return this.projectName.trim().length === 0
       }
    },
    methods: {
@@ -79,10 +83,16 @@ export default {
          this.showPicker = false
       },
       addProject() {
-         console.log('project')
+         this.$store.commit('addProjectToFolder', {
+            color: this.color.value,
+            icon: this.icon.value,
+            path: '/' + this.$route.name,
+            id: Math.random(),
+            name: this.projectName
+         })
       },
       close() {
-         console.log('close')
+         this.$store.commit('toggleNewProject')
       }
    }
 }
@@ -99,7 +109,6 @@ export default {
       transform: scale(0);
       transition: transform 0.2s;
       font-size: 14px;
-      box-shadow: rgba(15,15,15,.05) 0px 0px 0px 1px, rgba(15,15,15,.1) 0px 5px 10px, rgba(15,15,15,.2) 0px 15px 40px;
    }
 
    .new-project.show {

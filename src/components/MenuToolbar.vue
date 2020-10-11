@@ -1,7 +1,13 @@
 <template>
    <div class="flex absolute w100">
-      <IconButton iconName="list" @click.native="newList" />
-      <IconButton iconName="folder" @click.native="newFolder" />
+      <IconButton 
+         iconName="list" 
+         @click.native="newList" 
+      />
+      <IconButton 
+         iconName="folder" 
+         @click.native="newFolder" 
+      />
    </div>
 </template>
 
@@ -16,7 +22,7 @@ export default {
          console.log('new list')
       },
       newFolder() {
-         console.log('new folder')
+         this.$store.commit('toggleNewFolder')
       }
    }
 }

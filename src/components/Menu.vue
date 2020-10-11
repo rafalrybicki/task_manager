@@ -21,8 +21,9 @@
             :key="folder.name + '_' + index" 
             :projects="folder.projects"
             :name="folder.name"
+            :id="folder.id"
          />
-         <MenuToolbar @click.native="close" />
+         <MenuToolbar />
       </nav>
    </header>
 </template>
@@ -45,7 +46,7 @@ export default {
 			return this.$store.state.menu
 		},
       folders() {
-         return this.$store.state.projectsFolders
+         return this.$store.state.folders.folders
       },
       smartLists() {
          return this.$store.state.smartLists
@@ -53,7 +54,7 @@ export default {
    },
    methods: {
       close() {
-         console.log('close')
+         console.log('close menu')
       }
    }
 }

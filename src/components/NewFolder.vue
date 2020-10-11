@@ -25,6 +25,7 @@
       <button 
          type="submit" 
          class="btn"
+         :disabled="disabled"
       >Save</button>
    </form>
 </template>
@@ -39,15 +40,18 @@ export default {
    },
    computed: {
       show() {
-         return this.$store.state.newFolder
+         return this.$store.state.folders.newFolder
+      },
+      disabled() {
+         return this.folderName.trim().length === 0
       }
    },
    methods: {
       addFolder() {
-         console.log('new folder')
+         this.$store.commit('addNewFolder', this.folderName)
       },
       close() {
-         console.log('close new folder')
+         this.$store.commit('toggleNewFolder')
       }
    }
 }
